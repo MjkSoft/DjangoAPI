@@ -4,6 +4,8 @@ from django.db import models
 class Departments(models.Model):
     DepartmentID = models.AutoField(primary_key=True)
     DepartmentName = models.CharField(max_length=100)
+    def __str__(self):
+        return self.DepartmentName
 
 
 class Employees(models.Model):
@@ -12,4 +14,8 @@ class Employees(models.Model):
     Department = models.CharField(max_length=100)
     DateOfJoining = models.DateField()
     PhotoFileName = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.EmployeeName}  - {self.DateOfJoining}"
+    
     
